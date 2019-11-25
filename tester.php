@@ -1,7 +1,5 @@
 <?php
 
-  include_once '../objects/world.php';
-
   $worlds = EQ2_GetAllWorlds();
 
   foreach ($worlds as $world) {

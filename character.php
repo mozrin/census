@@ -1,35 +1,23 @@
 <?php
 
-  $id = $_GET['id'];
+  $id = (($_GET['id'] == '') ? DEFAULT_EQ2_CHARACTER_ID : $_GET['id']);
 
-  $website = file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/character/'.$id);
+  $json = file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/character/'.$id);
 
-  $parsed = json_decode($website);
+  $parsed = json_decode($json)->character_list[0];
 
-  $type_classid = $parsed->character_list[0]->type->classid;
-  $type_aa_level = $parsed->character_list[0]->type->aa_level;
-  $type_ts_level = $parsed->character_list[0]->type->ts_level;
-  $type_raceid = $parsed->character_list[0]->type->raceid;
-  $type_level = $parsed->character_list[0]->type->level;
-  $type_gender = $parsed->character_list[0]->type->gender;
-  $type_ts_class = $parsed->character_list[0]->type->ts_class;
-  $type_birthdate_utc = $parsed->character_list[0]->type->birthdate_utc;
-  $type_race = $parsed->character_list[0]->type->race;
-  $type_deity = $parsed->character_list[0]->type->deity;
-  $type_class = $parsed->character_list[0]->type->class;
-  $type_alignment = $parsed->character_list[0]->type->alignment;
-
-  echo "type_classid = ".$type_classid."<br />";
-  echo "type_aa_level = ".$type_aa_level."<br />";
-  echo "type_ts_level = ".$type_ts_level."<br />";
-  echo "type_raceid = ".$type_raceid."<br />";
-  echo "type_level = ".$type_level."<br />";
-  echo "type_gender = ".$type_gender."<br />";
-  echo "type_ts_class = ".$type_ts_class."<br />";
-  echo "type_birthdate_utc = ".date('m/d/Y',$type_birthdate_utc)."<br />";
-  echo "type_race = ".$type_race."<br />";
-  echo "type_deity = ".$type_deity."<br />";
-  echo "type_race = ".$type_race."<br />";
-  echo "type_class = ".$type_class."<br />";
-  echo "type_alignment = ".$type_alignment."<br />";
+  echo "firstname = ".$parsed->name->first."<br />";
+  echo "type_classid = ".$parsed->type->classid."<br />";
+  echo "type_aa_level = ".$parsed->type->aa_level."<br />";
+  echo "type_ts_level = ".$parsed->type->ts_level."<br />";
+  echo "type_race_id = ".$parsed->type->raceid."<br />";
+  echo "type_race_global = ".$EQ2_RACE[$parsed->type->raceid]->displayname."<br />";
+  echo "type_race = ".$parsed->type->race."<br />";
+  echo "type_level = ".$parsed->type->level."<br />";
+  echo "type_gender = ".$parsed->type->gender."<br />";
+  echo "type_ts_class = ".$parsed->type->ts_class."<br />";
+  echo "type_birthdate_utc = ".date('m/d/Y',$parsed->type->birthdate_utc)."<br />";
+  echo "type_deity = ".$parsed->type->deity."<br />";
+  echo "type_class = ".$parsed->type->class."<br />";
+  echo "type_alignment = ".$parsed->type->alignment."<br />";
 ?>

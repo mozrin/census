@@ -1,11 +1,16 @@
 <?php
 
-  $id = $_GET['id'];
+  $id = (($_GET['id'] == '') ? DEFAULT_EQ2_GUILD_ID : $_GET['id']);
 
-  $guild_data = file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/guild/'.$id);
-  $member_data = file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/character?guild.id='.$id);
+  $guild_data = json_decode(file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/guild/'.$id));
+  $guild_ranks = $guild_data->rank_list;
 
-  $parsed = json_decode($member_data);
+
+  $member_data = json_decode(file_get_contents('http://census.daybreakgames.com/s:mozrin/json/get/eq2/character?guild.id='.$id));
+  $member_type = $memberdata.character_list;
+
+  echoD('$id', $guild_data->guild_list[0]->id);
+
 
   $type_classid = $parsed->character_list[0]->type->classid;
 
@@ -35,4 +40,31 @@
   echo "type_race = ".$type_race."<br />";
   echo "type_class = ".$type_class."<br />";
   echo "type_alignment = ".$type_alignment."<br />"; */
+
+  echo '
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        1 of 2
+      </div>
+      <div class="col">
+        2 of 2
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1 of 3
+      </div>
+      <div class="col">
+        2 of 3
+      </div>
+      <div class="col">
+        3 of 3
+      </div>
+    </div>
+  </div>
+
+  ';
+
 ?>
