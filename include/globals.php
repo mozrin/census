@@ -1,9 +1,9 @@
 <?php
 
-  stampIt('Globals - Begin');
+  DEBUG_StampIt('Globals - Begin');
 
   define('DEFAULT_PAGE', 'pickone');
-  
-  stampIt('Globals - End');
+
+  DEBUG_StampIt('Globals - End');
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-  stampIt('Header Start - Begin');
+  DEBUG_StampIt('Header Start - Begin');
 
   echo '<!doctype html><html lang="en"><head>
 
@@ -13,6 +13,6 @@
 
   ';
 
-  stampIt('Header Start - End');
+  DEBUG_StampIt('Header Start - End');
 
 ?>

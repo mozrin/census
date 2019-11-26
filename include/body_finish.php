@@ -1,6 +1,6 @@
 <?php
 
-  stampIt('Body Finish - Begin');
+  DEBUG_StampIt('Body Finish - Begin');
 
   echo '<div class="container-fluid">FOOTER</div>';
 
@@ -14,6 +14,6 @@
 
   </body></html>';
 
-  stampIt('Body Finish - End');
+  DEBUG_StampIt('Body Finish - End');
 
 ?>

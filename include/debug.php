@@ -1,10 +1,10 @@
 <?php
 
-  define('DEBUG', false);  
+  define('DEBUG', false);
 
   function echoD($variable_name, $variable_data) { if (debug) { echo 'DEBUG: ('.$variable_name.') = |'.$variable_data.'|'; } return; }
 
-  function stampIt($str) {
+  function DEBUG_StampIt($str) {
 
      if (DEBUG) {
 

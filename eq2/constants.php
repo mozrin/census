@@ -8,11 +8,11 @@
 
   $EQ2_CENSUS = 'http:'.'//census.daybreakgames.com/s:mozrin/json/get/eq2';
 
-  stampIt('Before Cenus Query');
+  DEBUG_StampIt('Before Cenus Query');
 
   $constants = json_decode(file_get_contents($EQ2_CENSUS.'/constants'))->constants_list[0];
 
-  stampIt('After Cenus Query');
+  DEBUG_StampIt('After Cenus Query');
 
   $EQ2_MINADVENTURELEVEL= $constants->minadventurelevel;
   $EQ2_RACE = $constants->race_list;
@@ -37,6 +37,6 @@
 
   $EQ2_WORLDS = json_decode(file_get_contents($EQ2_CENSUS.'/world?c:limit=100'))->world_list;
 
-  stampIt('After Cenus Parse');
+  DEBUG_StampIt('After Cenus Parse');
 
 ?>

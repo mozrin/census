@@ -1,9 +1,9 @@
 <?php
 
-  stampIt('Header Finish - Begin');
+  DEBUG_StampIt('Header Finish - Begin');
 
   echo '</head><body>';
 
-  stampIt('Header Finish - End');
+  DEBUG_StampIt('Header Finish - End');
 
 ?>
