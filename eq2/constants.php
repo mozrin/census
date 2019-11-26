@@ -35,10 +35,8 @@
   $EQ2_LANGUAGE = $constants->language_list;
   $EQ2_MINTRADESKILLLEVEL = $constants->mintradeskilllevel;
 
-  $EQ2_WORLDS = json_decode(file_get_contents($EQ2_CENSUS.'/world'))->world_list[0];
+  $EQ2_WORLDS = json_decode(file_get_contents($EQ2_CENSUS.'/world?c:limit=100'))->world_list;
 
   stampIt('After Cenus Parse');
-
-
 
 ?>

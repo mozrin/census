@@ -20,7 +20,8 @@
       $html .= '<tr>';
 
       foreach ($array[$i] as $key => $value) {
-        $html .= '<td>'.$value.'</td>';
+        if (isValidTimeStamp($value)) { $html .= '<td>'.gmdate("Y-m-d", $value).'</td>'; }
+        else { $html .= '<td>'.$value.'</td>'; }
       }
     }
 
@@ -29,28 +30,13 @@
     return $html;
   }
 
-  function EQ2_GetWorld($worldid) {
+  function isValidTimeStamp($timeStamp) {
 
-    if ( $worldid > 99 && $worldid < 1000 ) {
+    $intTimeStamp = (string) intval($timeStamp);
 
-      $query = 'http://'.'census.daybreakgames.com/s:mozrin/json/get/eq2/world?id='.$worldid;
-      $result = json_decode(file_get_contents($query));
-    }
-    else { $result = '"Invalid World ID/n'; }
-
-    return $result;
+    return  ( strlen($intTimeStamp) == 10 )
+            && ($intTimeStamp <= PHP_INT_MAX)
+            && ($intTimeStamp >= ~PHP_INT_MAX);
   }
 
-  function EQ2_GetAllWorlds() {
-
-    $returncode = array();
-
-    $query = 'http://'.'census.daybreakgames.com/s:mozrin/json/get/eq2/world?c:limit=100';
-    $result = json_decode(file_get_contents($query))->world_list;
-
-    echo '$result = |'.$result.'|<br />';
-
-    return $result;
-  }
-
-  ?>
+?>

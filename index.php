@@ -10,7 +10,7 @@
 
   // This is where the display of the page begins.
 
-  include_once 'include/header_start.php';
+  include 'include/header_start.php';
 
   // Add any custom header information here for this page.
 
