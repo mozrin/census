@@ -7,7 +7,6 @@
   include_once 'include/globals.php';
   include_once 'eq2/constants.php';
   include_once 'eq2/functions.php';
-  include_once 'api/objects/world.php';
 
   // This is where the display of the page begins.
 
